@@ -55,4 +55,34 @@ export class OfertasService {
   public getOfertas(): Array<Oferta> {
     return this.ofertas;
   }
+
+  public getofertasNew(): Promise<Oferta[]> {
+    return new Promise((resolve, reject) => {
+      // console.log('Será que passou aqui')
+
+      let done = true;
+
+      if(done) {
+        setTimeout(() => resolve(this.ofertas)
+        , 3000)
+      } else {
+        reject({ codigo_erro: 404, mensagem_erro: 'Servidor não encontrado XYZ'})
+      }
+    })
+    .then((ofertas: Oferta[]) => {
+      // fazer alguma tratativa
+      console.log('primeiro then')
+      return ofertas
+    })
+    .then(( ofertas: Oferta[]) => {
+      console.log('segundo then')
+      return new Promise((resolveNew, rejectNew) => {
+        setTimeout(() => {resolveNew( ofertas )},3000)
+      })
+      .then((ofertas: Oferta[]) => {
+        console.log('terceiro then excutado após 3 segundos estava aguardando a promise ser resolvida')
+        return ofertas
+      })
+    })
+  }
 }
