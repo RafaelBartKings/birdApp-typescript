@@ -2,27 +2,30 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Oferta } from './shared/oferta.model';
 import { firstValueFrom } from 'rxjs';
+import { URL_API } from './app.api';
 
 @Injectable()
 export class OfertasService {
-  URL = 'http://localhost:3000/ofertas?destaque=true';
-
-  URLCategoria: any;
+  // private url_api = 'http://localhost:3000/ofertas';
 
   constructor(private http: HttpClient) {}
 
   public getOfertas(): Promise<Oferta[]> {
     // efetuar requisição HTTP e retornar um array de ofertas
-    return firstValueFrom(this.http.get<Oferta[]>(this.URL)).then(
-      (resposta: any) => resposta
-    );
+    return firstValueFrom(
+      this.http.get<Oferta[]>(`${URL_API}?destaque=true`)
+    ).then((resposta: any) => resposta);
   }
 
   public getOfertasCategoria(categoria: string): Promise<Oferta[]> {
-    this.URLCategoria = `http://localhost:3000/ofertas?categoria=${categoria}`;
+    return firstValueFrom(
+      this.http.get(`${URL_API}?categoria=${categoria}`)
+    ).then((resposta: any) => resposta);
+  }
 
-    return firstValueFrom(this.http.get(this.URLCategoria)).then(
-      (resposta: any) => resposta
+  public getOfertaId(id: number): Promise<Oferta> {
+    return firstValueFrom(this.http.get(`${URL_API}?id=${id}`)).then(
+      (resposta: any) => resposta[0]
     );
   }
 }
