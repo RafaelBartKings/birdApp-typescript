@@ -36,4 +36,12 @@ export class OfertasService {
       }
     );
   }
+
+  public getOndeFicaOfertatId(id: number): Promise<string> {
+    return firstValueFrom(this.http.get(`${URL_API}/onde-fica?id=${id}`)).then(
+      (resposta: any) => {
+        return resposta[0].descricao;
+      }
+    );
+  }
 }
