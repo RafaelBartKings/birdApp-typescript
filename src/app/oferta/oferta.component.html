@@ -45,51 +45,38 @@
 
   <div class="row" style="margin-bottom: 25px; margin-bottom: 150px">
     <div class="col">
-      <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">
-          <button
+          <a
             class="nav-link active"
             data-bs-toggle="tab"
-            href="#como-usar"
+            [routerLink]="['como-usar']"
+            data-bs-target="#nav-como-usar"
+            type="button"
             role="tab"
-            aria-controls="home-tab-pane"
+            aria-controls="nav-como-usar"
             aria-selected="true"
           >
-            Como usar
-          </button>
+            Como usar?
+          </a>
         </li>
         <li class="nav-item">
-          <button
-            class="nav-link"
+          <a
+            class="nav-link active"
             data-bs-toggle="tab"
-            href="#onde-fica"
+            [routerLink]="['onde-fica']"
+            data-bs-target="#nav-onde-fica"
+            type="button"
             role="tab"
-            aria-controls="profile-tab-pane"
-            aria-selected="false"
+            aria-controls="nav-onde-fica"
+            aria-selected="true"
           >
             Onde fica?
-          </button>
+          </a>
         </li>
       </ul>
       <div class="tab-content">
-        <div
-          class="tab-pane fade show active"
-          id="como-usar"
-          role="tabpanel"
-          aria-labelledby="home-tab"
-          tabindex="0"
-        >
-          Texto: "Como usar"
-        </div>
-        <div
-          class="tab-pane fade"
-          id="onde-fica"
-          role="tabpanel"
-          aria-labelledby="profile-tab"
-          tabindex="0"
-        >
-          Texto: "Onde fica?"
-        </div>
+        <router-outlet></router-outlet>
       </div>
     </div>
   </div>
