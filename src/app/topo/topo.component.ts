@@ -20,7 +20,7 @@ import { of } from 'rxjs';
 })
 export class TopoComponent implements OnInit {
   public ofertas: Observable<Oferta[]>;
-  public ofertaNew: Oferta[];
+  // public ofertaNew: Oferta[];
   private subjectPesquisa: Subject<string> = new Subject<string>();
 
   constructor(private ofertasService: OfertasService) {}
@@ -31,8 +31,6 @@ export class TopoComponent implements OnInit {
       distinctUntilChanged(),
       // retorno Oferta[]
       switchMap((termo: string) => {
-        console.log('requisição http para API');
-
         if (termo.trim() === '') {
           // retornar Observable de array de ofertas vazio
           return of<Oferta[]>([]);
@@ -40,17 +38,16 @@ export class TopoComponent implements OnInit {
         return this.ofertasService.pesquisaOfertas(termo);
       }),
       catchError((error) => {
-        console.log(error);
         return of<Oferta[]>([]);
       })
     );
-    return this.ofertas.subscribe((ofertas: Oferta[]) => {
-      this.ofertaNew = ofertas;
-    });
   }
 
   public pesquisa(termoDaBusca: string): void {
-    console.log('keyup caracter', termoDaBusca);
     this.subjectPesquisa.next(termoDaBusca);
+  }
+
+  public cleanSearch(): void {
+    this.subjectPesquisa.next('');
   }
 }
