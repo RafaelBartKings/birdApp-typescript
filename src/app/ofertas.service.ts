@@ -57,7 +57,7 @@ export class OfertasService {
       )
       .pipe(
         retry(10),
-        map((resposta: any) => resposta.join())
+        map((resposta: any) => resposta)
       );
   }
 }
