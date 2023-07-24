@@ -17,7 +17,7 @@
           />
           <ul class="list-group" style="position: absolute">
             <li class="list-group-item" *ngFor="let oferta of ofertaNew">
-              {{ oferta.titulo | uppercase }}
+              {{ oferta.titulo | descricaoReduzida : 7 | uppercase }}
             </li>
           </ul>
         </div>
