@@ -20,5 +20,14 @@
 }
 
 .active {
-    color: #FFF 
+    color: #FFF
+}
+
+.navbar {
+  background: white;
+}
+
+
+.form-control {
+  width: 100%;
 }

@@ -19,6 +19,7 @@ import { ComoUsarComponent } from './oferta/como-usar/como-usar.component';
 import { OndeFicaComponent } from './oferta/onde-fica/onde-fica.component';
 // pipe
 import { DescricaoReduzida } from './util/descricao-reduzida.pipe';
+import { OrdemCompraComponent } from './ordem-compra/ordem-compra.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { DescricaoReduzida } from './util/descricao-reduzida.pipe';
     ComoUsarComponent,
     OndeFicaComponent,
     DescricaoReduzida,
+    OrdemCompraComponent,
   ],
   imports: [
     BrowserModule,

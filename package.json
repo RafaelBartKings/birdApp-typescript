@@ -18,11 +18,12 @@
     "@angular/platform-browser": "^16.1.0",
     "@angular/platform-browser-dynamic": "^16.1.0",
     "@angular/router": "^16.1.0",
+    "@popperjs/core": "^2.11.8",
     "bootstrap": "^4.0.0-beta.2",
     "intl": "^1.2.5",
     "jquery": "^3.7.0",
+    "popper.js": "^1.12.5",
     "rxjs": "~7.8.0",
-    "tether": "^2.0.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
   },
