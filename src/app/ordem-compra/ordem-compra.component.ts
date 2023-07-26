@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { OrdemCompraService } from '../ordem-compra.service';
 
 @Component({
   selector: 'app-ordem-compra',
   templateUrl: './ordem-compra.component.html',
   styleUrls: ['./ordem-compra.component.css'],
+  providers: [OrdemCompraService],
 })
 export class OrdemCompraComponent implements OnInit {
   public endereco: string = '';
@@ -23,9 +25,14 @@ export class OrdemCompraComponent implements OnInit {
   public complementoEstadoPrimitivo: boolean = true;
   public formaPagamentoEstadoPrimitivo: boolean = true;
 
-  constructor() {}
+  //Controlar botão Confirmar Compra
+  public formEstado: string = 'disabled';
 
-  ngOnInit(): void {}
+  constructor(private ordemCompraService: OrdemCompraService) {}
+
+  ngOnInit(): void {
+    // this.ordemCompraService.efetivarCompra();
+  }
 
   public atualizaEndereco(endereco: string): void {
     this.endereco = endereco;
@@ -38,6 +45,8 @@ export class OrdemCompraComponent implements OnInit {
     } else {
       this.enderecoValido = false;
     }
+
+    this.habilitaForm();
   }
 
   public atualizaNumero(numero: string): void {
@@ -51,6 +60,7 @@ export class OrdemCompraComponent implements OnInit {
     } else {
       this.numeroValido = false;
     }
+    this.habilitaForm();
   }
 
   public atualizaComplemento(complemento: string): void {
@@ -62,6 +72,7 @@ export class OrdemCompraComponent implements OnInit {
     if (this.complemento.length > 0) {
       this.complementoValido = true;
     }
+    this.habilitaForm();
   }
 
   public atualizaFormaPagamento(formaPagamento: string): void {
@@ -74,6 +85,19 @@ export class OrdemCompraComponent implements OnInit {
       this.formaPagamentoValido = true;
     } else {
       this.formaPagamentoValido = false;
+    }
+    this.habilitaForm();
+  }
+
+  public habilitaForm(): void {
+    if (
+      this.enderecoValido === true &&
+      this.numeroValido === true &&
+      this.formaPagamentoValido === true
+    ) {
+      this.formEstado = '';
+    } else {
+      this.formEstado = 'disabled';
     }
   }
 }
