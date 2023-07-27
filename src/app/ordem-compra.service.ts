@@ -8,7 +8,7 @@ import { URL_API } from './app.api';
 export class OrdemCompraService {
   constructor(private http: HttpClient) {}
 
-  public efetivarCompra(pedido: Pedido): Observable<any> {
+  public efetivarCompra(pedido: Pedido): Observable<number> {
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
@@ -19,6 +19,6 @@ export class OrdemCompraService {
 
     return this.http
       .post(`${URL_API}/pedidos`, JSON.stringify(pedido), options)
-      .pipe(map((resposta: any) => console.log(resposta.id)));
+      .pipe(map((resposta: any) => resposta.id));
   }
 }

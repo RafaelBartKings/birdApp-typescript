@@ -192,6 +192,27 @@
       "complemento": "apto 02",
       "formaPagamento": "dinheiro",
       "id": 1
+    },
+    {
+      "endereco": "Rua Severa",
+      "numero": "05",
+      "complemento": "Perto do mercado",
+      "formaPagamento": "debito",
+      "id": 2
+    },
+    {
+      "endereco": "Rua Amambai",
+      "numero": "522",
+      "complemento": "",
+      "formaPagamento": "dinheiro",
+      "id": 3
+    },
+    {
+      "endereco": "Rua Diamantina",
+      "numero": "145",
+      "complemento": "perto da Uninove",
+      "formaPagamento": "debito",
+      "id": 4
     }
   ]
 }
