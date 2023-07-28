@@ -213,6 +213,13 @@
       "complemento": "perto da Uninove",
       "formaPagamento": "debito",
       "id": 4
+    },
+    {
+      "endereco": "Rua Severa",
+      "numero": "10 ",
+      "complemento": "Apt A",
+      "formaPagamento": "debito",
+      "id": 5
     }
   ]
 }
