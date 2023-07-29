@@ -1,6 +1,6 @@
 <div class="container">
   <div class="ordem-compra" *ngIf="idPedidoCompra === undefined">
-    <form novalidate #formulario="ngForm" (ngSubmit)="confirmarCompra()">
+    <form [formGroup]="formulario" novalidate (ngSubmit)="confirmarCompra()">
       <h5>Sua Compra</h5>
       <hr />
 
@@ -81,20 +81,21 @@
             class="form-control"
             placeholder="Endereço"
             autocomplete="off"
-            required
-            minlength="3"
-            maxlength="120"
-            name="endereco"
-            ngModel
-            #inputEndereco="ngModel"
+            formControlName="endereco"
           />
           <small
-            *ngIf="inputEndereco.valid && inputEndereco.touched"
+            *ngIf="
+              formulario.get('endereco').valid &&
+              formulario.get('endereco').touched
+            "
             class="form-text text-success"
             >Endereço válido</small
           >
           <small
-            *ngIf="!inputEndereco.valid && inputEndereco.touched"
+            *ngIf="
+              !formulario.get('endereco').valid &&
+              formulario.get('endereco').touched
+            "
             class="form-text text-danger"
             >Endereço inválido</small
           >
@@ -106,20 +107,20 @@
             class="form-control"
             placeholder="Número"
             autocomplete="off"
-            required
-            name="numero"
-            minlength="1"
-            maxlength="20"
-            ngModel
-            #inputNumero="ngModel"
+            formControlName="numero"
           />
           <small
-            *ngIf="inputNumero.valid && inputNumero.touched"
+            *ngIf="
+              formulario.get('numero').valid && formulario.get('numero').touched
+            "
             class="form-text text-success"
             >Número válido</small
           >
           <small
-            *ngIf="!inputNumero.valid && inputNumero.touched"
+            *ngIf="
+              !formulario.get('numero').valid &&
+              formulario.get('numero').touched
+            "
             class="form-text text-danger"
             >Número inválido</small
           >
@@ -131,8 +132,7 @@
             class="form-control"
             placeholder="Complemento"
             autocomplete="off"
-            name="complemento"
-            ngModel
+            formControlName="complemento"
           />
         </div>
       </div>
@@ -143,40 +143,39 @@
 
       <div class="form-row">
         <div class="form-group col-md-3">
-          <select
-            class="form-control"
-            name="formaPagamento"
-            ngModel
-            required
-            #selectFormaPagamento="ngModel"
-          >
+          <select class="form-control" formControlName="formaPagamento">
             <option value="">Selecione uma opção</option>
             <option value="dinheiro">Dinheiro</option>
             <option value="debito">Débito</option>
           </select>
-
           <small
-            *ngIf="selectFormaPagamento.valid && selectFormaPagamento.touched"
+            *ngIf="
+              formulario.get('formaPagamento').valid &&
+              formulario.get('formaPagamento').touched
+            "
             class="form-text text-success"
-            >Forma pagamento válido</small
+            >Pagamento válido</small
           >
           <small
-            *ngIf="!selectFormaPagamento.valid && selectFormaPagamento.touched"
+            *ngIf="
+              !formulario.get('formaPagamento').valid &&
+              formulario.get('formaPagamento').touched
+            "
             class="form-text text-danger"
-            >Forma pagamento inválido</small
+            >Pagamento inválido</small
           >
         </div>
       </div>
 
       <hr />
       <button type="submit" class="btn btn-primary btn-lg">
-        Cofirmar compra
+        Confirmar compra
       </button>
     </form>
   </div>
-
   <div class="ordem-compra" *ngIf="idPedidoCompra !== undefined">
-    <app-ordem-compra-sucesso [idPedidoCompra]="idPedidoCompra">
-    </app-ordem-compra-sucesso>
+    <app-ordem-compra-sucesso
+      [idPedidoCompra]="idPedidoCompra"
+    ></app-ordem-compra-sucesso>
   </div>
 </div>

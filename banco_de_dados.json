@@ -227,6 +227,20 @@
       "complemento": "Casa B",
       "formaPagamento": "debito",
       "id": 6
+    },
+    {
+      "endereco": "Rua Severa",
+      "numero": "150",
+      "complemento": "apto A",
+      "formaPagamento": "dinheiro",
+      "id": 7
+    },
+    {
+      "endereco": "Rua Itauna",
+      "numero": "120",
+      "complemento": "apto B",
+      "formaPagamento": "dinheiro",
+      "id": 8
     }
   ]
 }

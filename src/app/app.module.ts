@@ -4,7 +4,8 @@ import localePt from '@angular/common/locales/pt';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+// import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { ROUTES } from './app.routes';
 
@@ -42,7 +43,8 @@ import { OrdemCompraSucessoComponent } from './ordem-compra-sucesso/ordem-compra
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,
+    // FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(ROUTES),
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'pt-PT' }],
