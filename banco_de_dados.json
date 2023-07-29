@@ -220,6 +220,13 @@
       "complemento": "Apt A",
       "formaPagamento": "debito",
       "id": 5
+    },
+    {
+      "endereco": "Rua Diamantina",
+      "numero": "10",
+      "complemento": "Casa B",
+      "formaPagamento": "debito",
+      "id": 6
     }
   ]
 }
