@@ -1,4 +1,4 @@
-import { ItemCarrinho } from './shared/item-carrinho-model';
+import { ItemCarrinho } from './shared/item-carrinho.model';
 import { Oferta } from './shared/oferta.model';
 
 class CarrinhoService {
@@ -18,8 +18,8 @@ class CarrinhoService {
       1
     );
 
-    console.log(itemCarrinho);
+    this.itens.push(itemCarrinho);
   }
 }
 
-export default CarrinhoService;
+export { CarrinhoService };
