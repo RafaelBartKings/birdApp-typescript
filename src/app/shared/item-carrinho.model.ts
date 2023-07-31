@@ -1,12 +1,16 @@
 class ItemCarrinho {
   constructor(
     public id: number,
-    public img: any,
+    public img: ImagemURL,
     public titulo: string,
     public descricao_oferta: string,
     public valor: number,
     public quantidade: number
   ) {}
+}
+
+interface ImagemURL {
+  url: string;
 }
 
 export { ItemCarrinho };
