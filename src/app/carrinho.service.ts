@@ -37,6 +37,36 @@ class CarrinhoService {
     });
     return total;
   }
+
+  public adicionarQuantidade(itemCarrinho: ItemCarrinho): void {
+    console.log(itemCarrinho);
+
+    let itemCarrinhoEncontrado = this.itens.find(
+      (item: ItemCarrinho) => item.id === itemCarrinho.id
+    );
+
+    if (itemCarrinhoEncontrado) {
+      itemCarrinhoEncontrado.quantidade += 1;
+    }
+  }
+
+  public diminuirQuantidade(itemCarrinho: ItemCarrinho): void {
+    let itemCarrinhoEncontrado = this.itens.find(
+      (item: ItemCarrinho) => item.id === itemCarrinho.id
+    );
+
+    if (itemCarrinhoEncontrado) {
+      itemCarrinhoEncontrado.quantidade -= 1;
+
+      if (itemCarrinhoEncontrado.quantidade === 0) {
+        this.itens.splice(this.itens.indexOf(itemCarrinhoEncontrado), 1);
+      }
+    }
+  }
+
+  public limparCarrinho(): void {
+    this.itens = [];
+  }
 }
 
 export { CarrinhoService };
